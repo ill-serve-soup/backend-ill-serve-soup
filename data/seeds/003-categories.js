@@ -5,14 +5,14 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex("categories").insert([
-        { category: "fruits" },
-        { category: "vegetables" },
-        { category: "meats" },
-        { category: "grains" },
-        { category: "spices" },
-        { category: "utensils" },
-        { category: "dishware" },
-        { category: "appliances" }
+        { category: "fruits" }, // 1
+        { category: "vegetables" }, // 2
+        { category: "meats" }, // 3
+        { category: "grains" }, // 4
+        { category: "spices" }, // 5
+        { category: "utensils" }, // 6
+        { category: "dishware" }, // 7
+        { category: "appliances" } // 8
       ]);
     });
 };
