@@ -31,8 +31,8 @@ function authenticate(req, res, next) {
 function generateToken(user) {
   const payload = {
     subject: user.email,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    // firstName: user.firstName,
+    // lastName: user.lastName,
     email: user.email
   };
 
