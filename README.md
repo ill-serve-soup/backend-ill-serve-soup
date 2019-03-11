@@ -32,12 +32,12 @@
 ```
 2. You will use the token provided in the above response to view restricted pages.
 
-## Viewing Inventory  
+## Viewing Inventory<br/>
 ### Viewing All Items
 
-**GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login  
+**GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login<br/>
 ### Viewing One Specific Item
-**GET** request to `/users/:userId/inventory/:itemId`  
+**GET** request to `/users/:userId/inventory/:itemId`<br/>
 ## Adding Inventory
 
 **POST** request to `/users/:userId/inventory` with an object of the following type:
