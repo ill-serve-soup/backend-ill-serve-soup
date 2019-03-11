@@ -5,7 +5,8 @@ module.exports = {
   getItemById,
   getById,
   add,
-  deleteItem
+  deleteItem,
+  updateItem
 };
 
 async function getByUserId(userId) {
@@ -60,4 +61,22 @@ function deleteItem(userId, itemId) {
     .where("userId", userId)
     .where("itemId", itemId)
     .del());
+}
+
+async function updateItem(item, userId, itemId) {
+  const count = await db("items")
+    .where({
+      userId: userId,
+      itemId: itemId
+    })
+    .update({
+      ...item
+    });
+  if (count > 0) {
+    return (updatedAction = await db("items")
+      .where({ itemId: itemId })
+      .first());
+  } else {
+    return false;
+  }
 }

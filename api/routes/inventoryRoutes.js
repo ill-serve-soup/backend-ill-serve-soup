@@ -73,4 +73,27 @@ router.delete("/:userId/inventory/:itemId", async (req, res) => {
   }
 });
 
+router.put("/:userId/inventory/:itemId", async (req, res) => {
+  if (req.body.userId || req.body.itemId) {
+    return res.status(404).json({
+      success: false,
+      message: "You may not update the userId or itemId of an item."
+    });
+  }
+  try {
+    const newItem = await InventoryFuncs.updateItem(
+      req.body,
+      req.params.userId,
+      req.params.itemId
+    );
+    if (newItem === false) {
+      res.status(404).json({ success: false, message: "Item not found." });
+    } else {
+      res.status(200).json(newItem);
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Error updating the item.", error });
+  }
+});
+
 module.exports = router;
