@@ -31,6 +31,7 @@ router.get("/:userId/inventory/:itemId", async (req, res) => {
     res.status(500).json({ success: false, message: "Error retrieving item." });
   }
 });
+
 router.post("/:userId/inventory", async (req, res) => {
   if (!req.body.name || !req.body.qty || !req.body.categoryId) {
     return res.status(400).json({
@@ -51,4 +52,25 @@ router.post("/:userId/inventory", async (req, res) => {
       .json({ success: false, message: "Error adding item", error });
   }
 });
+
+router.delete("/:userId/inventory/:itemId", async (req, res) => {
+  try {
+    const count = await InventoryFuncs.deleteItem(
+      req.params.userId,
+      req.params.itemId
+    );
+
+    if (count > 0) {
+      res
+        .status(200)
+        .json({ message: `Successfully deleted itemId ${req.params.itemId}` });
+      // .end();
+    } else {
+      res.status(404).json({ message: "An item with this id does not exist." });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
