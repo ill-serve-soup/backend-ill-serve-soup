@@ -26,6 +26,7 @@
 ```
 {
   message: "Welcome, FIRSTNAME!",
+  userId: 123, // the userId is an integer which associates your user profile with your respective inventory items
   token: "YOUR UNIQUE LOGIN TOKEN GOES HERE"
 }
 ```
@@ -34,3 +35,5 @@
 ## Viewing Inventory
 
 ### Viewing All Items
+
+**GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login
