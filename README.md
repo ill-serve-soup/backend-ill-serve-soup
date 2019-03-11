@@ -37,3 +37,22 @@
 ### Viewing All Items
 
 **GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login
+
+### Viewing One Specific Item
+
+**GET** request to `/users/:userId/inventory/:itemId`
+
+## Adding Inventory
+
+**POST** request to `/users/:userId/inventory` with an object of the following type:
+```
+{
+  name: '', // string, required
+  qty: 123, // integer, required
+  categoryId: 123, // ingeger, required
+  units: '', // string, optional
+  imageUrl: '', // string, optional 
+  inStock: true, // boolean, optional
+  description: '' // string, optional
+}
+```
