@@ -37,7 +37,7 @@
 - **GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login<br/>
 2. Viewing One Specific Item
 - **GET** request to `/users/:userId/inventory/:itemId`
-## Adding Inventory
+## Adding Inventory Item
 
 **POST** request to `/users/:userId/inventory` with an object of the following type:
 ```
@@ -51,5 +51,8 @@
   description: '' // string, optional
 }
 ```
-## Deleting Inventory
+## Deleting Inventory Item
 - **DELETE** request to `/users/:userId/inventory/:itemId`
+## Updating Inventory Item
+- **PUT** request to `/users/:userId/inventory/:itemId` with an object containing any fields you wish to update
+- Note: You may not update the `userId` or `itemId` of an item. The server will reject your request if you attempt to do so.
