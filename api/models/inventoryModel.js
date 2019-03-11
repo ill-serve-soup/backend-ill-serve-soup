@@ -17,4 +17,5 @@ async function getByUserId(userId) {
       "i.description"
     )
     .where("userId", userId);
+  return inventory;
 }
