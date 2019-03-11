@@ -34,13 +34,19 @@
 
 ## Viewing Inventory
 
+
+
 ### Viewing All Items
 
 **GET** request to `/users/:userId/inventory` (where `userId`) is the same userId that you receive on login
 
+
+
 ### Viewing One Specific Item
 
 **GET** request to `/users/:userId/inventory/:itemId`
+
+
 
 ## Adding Inventory
 
