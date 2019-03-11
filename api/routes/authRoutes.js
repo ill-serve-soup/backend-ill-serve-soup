@@ -48,12 +48,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/", authenticate, async (req, res) => {
-  const users = await UserFuncs.getAll();
-  try {
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
 module.exports = router;
