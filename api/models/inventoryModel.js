@@ -4,7 +4,8 @@ module.exports = {
   getByUserId,
   getItemById,
   getById,
-  add
+  add,
+  deleteItem
 };
 
 async function getByUserId(userId) {
@@ -52,4 +53,11 @@ function add(item) {
     .then(ids => {
       return getById(ids[0]);
     });
+}
+
+function deleteItem(userId, itemId) {
+  return (count = db("items")
+    .where("userId", userId)
+    .where("itemId", itemId)
+    .del());
 }
